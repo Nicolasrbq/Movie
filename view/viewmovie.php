@@ -1,9 +1,9 @@
-<?php 
-	require_once 'template/header.php';
+<?php require_once 'template/header.php';?>
 
-	echo 'Title:' . $movie['title'] . '<br/>';
-	echo 'Author:' . $movie['author'] . '<br/>';
-	echo 'Description:' . $movie['description'] . '<br/>';
-
-	require_once 'template/footer.php';
-?>
+<div id="movieList">
+	<label><?php echo $movie['title']?></label>
+	<label><?php echo $movie['author']?></label>
+	<label><?php echo $movie['description']?></label><br/>
+</div>	
+	
+<?php require_once 'template/footer.php';?>

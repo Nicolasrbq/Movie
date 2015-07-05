@@ -3,7 +3,7 @@
 	<div id="movieList">	
 	<?php foreach ($movies as $movie) {?>
 		<div class="movie">
-				<label><a href="index.php?movie='.$movie['id_movie'].'"><?php echo $movie['title']?></a></label>
+				<label><a href='index.php?movie=<?php echo $movie['id_movie']?>'><?php echo $movie['title']?></a></label>
 				<label><?php echo $movie['author']?></label>
 				<label><?php echo $movie['description']?></label>
 				<label><?php echo $movie['year']?></label>
