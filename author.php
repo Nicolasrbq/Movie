@@ -2,4 +2,4 @@
 	include 'controller/Controller.php';
 
 	$controller = new Controller();
-	$controller->invokeMovie();
+	$controller->invokeAuthor();

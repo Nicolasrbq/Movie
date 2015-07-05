@@ -3,6 +3,7 @@
 body {
 	margin: 0;
 	height: 100%;
+	min-height: 100%;
 }
 
 h1 {
@@ -15,22 +16,30 @@ h1 {
 #main {
 	width: 100%;
 	background: #EEE;
+	margin-top: 50px;
 }
 
-#movieList {
+#lists {
 	width: 900px;
 	margin: 0 auto;
 	padding: 50px;
 }
 
-.movie {
+.elements {
 	margin: 20px 0;
+	height: 30px;
+}
+
+.element {
+	margin: 20px 0;
+	height: 100px;
 }
 
 #menu {
 	width: 100%;
 	height: 50px;
 	background: #b8b8b8;
+	position: fixed;
 }
 
 nav {
@@ -61,9 +70,15 @@ nav ul li a {
 	font-size: 16px;
 	font-weight: bold;
 	letter-spacing:2px;
+	color: #000;
 }
 
 nav ul li a:hover {
 	background: #b8b8b8;
+	line-height: 50px;
+	
+	padding: 0 0 2px 0;
+	border-bottom: 2px solid #000;
+	box-sizing: border-box;
 }
 
