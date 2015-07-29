@@ -1,5 +1,8 @@
+			<footer>
+				<div>
+					<p> Nombre de films : <span>{{ numberMovies.cast }}</span></p>
+				</div>
+			</footer>
 		</div>
-		<footer>
-		</footer>
 	</body>
 </html>
