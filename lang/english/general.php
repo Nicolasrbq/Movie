@@ -8,4 +8,7 @@ $Genders = 'Genders';
 
 $MovieList = 'Movie list';
 
-$MovieNumber = 'Movie count';
+$MovieCount = 'Movie count';
+$AuthorCount = 'Author count';
+$GenderCount = 'Gender count';
+$ActorCount = 'Actor count';

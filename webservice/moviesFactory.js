@@ -1,12 +1,30 @@
 angular.module("appMovie").factory("moviesFactory", function($http) {
 	
-	var numberMoviesFactory = {
-		getCast: function() {
-			return $http.post("webservice/getNumberMovies.php").then(function(response){
-				return response.data;
-			});
+	return {
+		getCountMovies : function() {
+			return $http({
+				url: 'webservice/getCountMovies.php',
+				method: 'POST'
+			})
+		},
+		getCountAuthors : function() {
+			return $http({
+				url: 'webservice/getCountAuthors.php',
+				method: 'POST'
+			})
+		},
+		getCountGenders : function() {
+			return $http({
+				url: 'webservice/getCountGenders.php',
+				method: 'POST'
+			})
+		},
+		getCountActors : function() {
+			return $http({
+				url: 'webservice/getCountActors.php',
+				method: 'POST'
+			})
 		}
 	}
 	
-	return numberMoviesFactory;
 });

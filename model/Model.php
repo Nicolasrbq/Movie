@@ -22,7 +22,7 @@ class Model {
 	}
 	
 	public function getMovieList() {
-		$movieListRequest = 'SELECT * FROM movie, gender, author;';
+		$movieListRequest = 'SELECT * FROM movie, gender, author GROUP BY id_movie;';
 		$arrayList = self::$dbh->query($movieListRequest)->fetchAll();
 		return $arrayList;
 	}
@@ -34,18 +34,32 @@ class Model {
 		return $movie;
 	}
 	
-	public function getNumberMovies() {
-		$numberRequest = 'SELECT count(*) FROM movie;';
-		$number = self::$dbh->query($numberRequest);
-		$number = $number->fetchColumn();
-		return $number;
+	public function getCountMovies() {
+		$countRequest = 'SELECT count(*) FROM movie;';
+		$count = self::$dbh->query($countRequest);
+		$count = $count->fetchColumn();
+		return $count;
 	}
 	
-	public function getNumberAuthors() {
-		$numberRequest = 'SELECT count(*) FROM author;';
-		$number = self::$dbh->query($numberRequest);
-		$number = $number->fetchColumn();
-		return $number;
+	public function getCountAuthors() {
+		$countRequest = 'SELECT count(*) FROM author;';
+		$count = self::$dbh->query($countRequest);
+		$count = $count->fetchColumn();
+		return $count;
+	}
+	
+	public function getCountGenders() {
+		$countRequest = 'SELECT count(*) FROM gender;';
+		$count = self::$dbh->query($countRequest);
+		$count = $count->fetchColumn();
+		return $count;
+	}
+	
+	public function getCountActors() {
+		$countRequest = 'SELECT count(*) FROM actor;';
+		$count = self::$dbh->query($countRequest);
+		$count = $count->fetchColumn();
+		return $count;
 	}
 	
 }

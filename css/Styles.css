@@ -5,6 +5,18 @@ body {
 	height: 100%;
 }
 
+header,
+footer {
+	height: 50px;
+}
+
+footer {
+	border-top: 1px solid #b8b8b8;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
 h1 {
 	font-size: 30px;
 	margin: 20px 0;
@@ -13,6 +25,7 @@ h1 {
 }
 
 #main {
+	height: 100%;
 	width: 100%;
 	background: #EEE;
 }
@@ -26,6 +39,8 @@ h1 {
 .movie {
 	margin: 20px 0;
 }
+
+/*----------------------------------------*/
 
 #menu {
 	width: 100%;
@@ -67,7 +82,6 @@ nav ul li a:hover {
 	background: #b8b8b8;
 }
 
-
 /*----------------------------------------*/
 
 #flags {
@@ -81,4 +95,60 @@ nav ul li a:hover {
 	height: 40px;
 	width: 60px;
 	padding: 5px;
+}
+
+/*----------------------------------------*/
+
+#stats {
+	overflow: hidden;
+	height: 100%;
+}
+
+.count {
+	height: 100%;
+	float: left;
+	line-height: 50px;
+	padding: 0 20px;
+	border-right: 1px solid #b8b8b8;
+}
+
+.count:last-child {
+	border: none;
+}
+
+/*----------------------------------------*/
+
+#movieList .movie {
+	overflow: hidden;
+}
+
+#movieList .movie label {
+	display: block;
+	float: left;
+}
+
+.movie label.title {
+	width: 250px;
+}
+
+.movie label.title a {
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+}
+
+.movie label.author {
+	width: 150px;
+}
+
+.movie label.description {
+	width: 300px;
+}
+
+.movie label.gender {
+	width: 150px;
+}
+
+.movie label.year {
+	width: 50px;
 }

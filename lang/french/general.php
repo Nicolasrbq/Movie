@@ -8,4 +8,7 @@ $Genders = 'Genres';
 
 $MovieList = 'Liste des films';
 
-$MovieNumber = 'Nombre de films';
+$MovieCount = 'Nombre de films';
+$AuthorCount = 'Nombre d\'auteurs';
+$GenderCount = 'Nombre de genres';
+$ActorCount = 'Nombre de d\'acteurs';
