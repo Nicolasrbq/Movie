@@ -41,4 +41,11 @@ class Model {
 		return $number;
 	}
 	
+	public function getNumberAuthors() {
+		$numberRequest = 'SELECT count(*) FROM author;';
+		$number = self::$dbh->query($numberRequest);
+		$number = $number->fetchColumn();
+		return $number;
+	}
+	
 }

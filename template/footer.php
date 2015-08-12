@@ -1,6 +1,6 @@
 			<footer>
 				<div>
-					<p> Nombre de films : <span>{{ numberMovies.cast }}</span></p>
+					<p> <?php echo $MovieNumber ?> : <span>{{ numberMovies }}</span></p>
 				</div>
 			</footer>
 		</div>

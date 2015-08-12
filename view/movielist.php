@@ -1,5 +1,5 @@
 <?php require_once 'template/header.php';?>
-<h1>Liste des films</h1>
+<h1><?php echo $MovieList ?></h1>
 	<div id="movieList">	
 	<?php foreach ($movies as $movie) {?>
 		<div class="movie">

@@ -1,7 +1,30 @@
+<?php
+	
+	if(isset($_GET['lang'])) {
+		if ($_GET['lang'] == 'en') {
+			setcookie("french", 1 , time() -4200);
+			setcookie("english", 1 , time() + (((3600*24)*30)*12));
+		} else {
+			setcookie("english", 1 , time() -4200);
+			setcookie("french", 1 , time() + (((3600*24)*30)*12));
+		}
+		header('Location: index.php');
+	}
+
+	if (isset($_COOKIE['english']) OR !isset($_COOKIE['french'])) {
+		$language="english";
+	} else {
+		$language="french";
+	}
+	
+ 	require 'lang/'.$language.'/general.php';
+	
+// 	echo $language;
+?>
 <!DOCTYPE HTML>
 <html ng-app="appMovie">
 	<head>
-		<title>Movie</title>
+		<title><?php echo $Movies ?></title>
 		
 		<meta charset="UTF-8">
 		
@@ -23,10 +46,14 @@
 				<div id="menu">
 					<nav>
 						<ul>
-							<li><a href="">Films</a></li>
-							<li><a href="">Auteurs</a></li>
-							<li><a href="">Genres</a></li>
+							<li><a href=""><?php echo $Movies ?></a></li>
+							<li><a href=""><?php echo $Authors ?></a></li>
+							<li><a href=""><?php echo $Genders ?></a></li>
 						</ul>
 					</nav>
+				</div>
+				<div id="flags">
+					<a href="?lang=fr"><img src="img/french-flag.png" alt="French flag"></a>
+					<a href="?lang=en"><img src="img/british-flag.png" alt="English flag"></a>
 				</div>
 			</header>

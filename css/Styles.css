@@ -67,3 +67,18 @@ nav ul li a:hover {
 	background: #b8b8b8;
 }
 
+
+/*----------------------------------------*/
+
+#flags {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 50px;
+}
+
+#flags img {
+	height: 40px;
+	width: 60px;
+	padding: 5px;
+}
