@@ -1,4 +1,14 @@
 <?php
+
+	require_once './libs/lessc.inc.php';
+	
+	try {
+		lessc::ccompile('./css/styles.less', './css/styles.css');
+	} catch (exception $ex) {
+		exit('lessc fatal error: '.$ex->getMessage());
+	}
+
+	/*------------------------------------------------------------*/
 	
 	if(isset($_GET['lang'])) {
 		if ($_GET['lang'] == 'en') {
@@ -18,8 +28,7 @@
 	}
 	
  	require 'lang/'.$language.'/general.php';
-	
-// 	echo $language;
+ 	
 ?>
 <!DOCTYPE HTML>
 <html ng-app="appMovie">
@@ -28,8 +37,9 @@
 		
 		<meta charset="UTF-8">
 		
-		<link href="css/Reset.css" type="text-css" rel="stylesheet">
-		<link href="css/Styles.css" type="text-css" rel="stylesheet">
+		<link href="css/reset.css" type="text-css" rel="stylesheet">
+		<link href="foundation/css/foundation.min.css" type="text-css" rel="stylesheet">
+		<link href="css/styles.css" type="text-css" rel="stylesheet">
 		
 		<script src="libs/jquery-2.1.4.min.js"></script>
 		<script src="libs/angular.js"></script>
@@ -46,7 +56,11 @@
 				<div id="menu">
 					<nav>
 						<ul>
-							<li><a href=""><?php echo $Movies ?></a></li>
+							<li><a href="index.php"><?php echo $Movies ?></a>
+								<ul>
+									<li><a href="index.php?adMovie"><?php echo $AdMovie ?></a></li>
+								</ul>
+							</li>
 							<li><a href=""><?php echo $Authors ?></a></li>
 							<li><a href=""><?php echo $Genders ?></a></li>
 						</ul>

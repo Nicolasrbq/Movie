@@ -11,12 +11,14 @@ class Controller {
     } 
 	
 	public function invoke() {
-		if (!isset($_GET['movie'])) {
-			$movies = $this->model->getMovieList();
-			include 'view/movielist.php';
-		} else {
+		if (isset($_GET['movie'])) {
 			$movie = $this->model->getMovie($_GET['movie']);
 			include 'view/viewmovie.php';
+		} elseif(isset($_GET['adMovie'])) {
+			include 'view/adMovie.php';
+		}else {
+			$movies = $this->model->getMovieList();
+			include 'view/movielist.php';
 		}
 	}
 	
