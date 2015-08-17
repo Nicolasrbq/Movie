@@ -30,10 +30,9 @@
 				        </div>
 				        <div class="large-7 columns">
 							<select>
-					          <option value="2012">2012</option>
-					          <option value="2013">2013</option>
-					          <option value="2014">2014</option>
-					          <option value="2015">2015</option>
+					          <?php for($i = 2012; $i <= 2020; $i++) {
+					          		echo '<option value="'.$i.'">'.$i.'</option>';
+					          }?>
 					        </select>
 				        </div>
 					</div>
