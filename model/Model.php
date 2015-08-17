@@ -1,7 +1,5 @@
 <?php
 
-include_once("model/Movie.php");
-
 class Model {
 	
 	public static $dbh = NULL;
@@ -60,6 +58,47 @@ class Model {
 		$count = self::$dbh->query($countRequest);
 		$count = $count->fetchColumn();
 		return $count;
+	}
+	
+	public function setMovie($title, $author, $actor, $year, $gender, $comment) {
+		
+		$insertMovie = self::$dbh->prepare('INSERT INTO movie (title, description, year, id_gender, id_actor, id_author) VALUES ('.$title.', '.$comment.', '.$year.', '.$gender.', '.$actor.', '.$author.')');
+		
+		$insertMovie->execute(array(
+			'title' => $title,
+			'description' => $comment,
+			'year' => $year,
+			'id_gender' => $gender,
+			'id_actor' => $actor,
+			'id_author' => $author
+		));
+		
+		$data = $insertMovie->fetchAll();
+		
+		if(count($data) > 0){
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
+	public function getAuthorList() {
+		$authorListRequest = 'SELECT * FROM author;';
+		$arrayList = self::$dbh->query($authorListRequest)->fetchAll(PDO::FETCH_ASSOC);
+		return $arrayList;
+	}
+	
+	public function getGenderList() {
+		$genderListRequest = 'SELECT * FROM gender;';
+		$arrayList = self::$dbh->query($genderListRequest)->fetchAll(PDO::FETCH_ASSOC);
+		return $arrayList;
+	}
+	
+	public function getActorList() {
+		$actorListRequest = 'SELECT * FROM actor;';
+		$arrayList = self::$dbh->query($actorListRequest)->fetchAll(PDO::FETCH_ASSOC);
+		return $arrayList;
 	}
 	
 }

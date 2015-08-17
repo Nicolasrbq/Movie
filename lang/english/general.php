@@ -18,5 +18,8 @@ $ActorCount = 'Actor count';
 $Title = 'Title';
 $Author = 'Author';
 $Year = 'Year';
-$Type = 'Type';
+$Gender = 'Gender';
 $Comment = 'Comments';
+$Actor = 'Actor';
+
+$Ad = 'Ad';

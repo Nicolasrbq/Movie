@@ -18,5 +18,8 @@ $ActorCount = 'Nombre de d\'acteurs';
 $Title = 'Titre';
 $Author = 'Auteur';
 $Year = 'Année';
-$Type = 'Type';
+$Gender = 'Genre';
 $Comment = 'Commentaires';
+$Actor = 'Acteur';
+
+$Ad = 'Ajouter';
