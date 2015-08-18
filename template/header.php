@@ -37,17 +37,10 @@
 		
 		<meta charset="UTF-8">
 		
-		<link href="css/reset.css" type="text-css" rel="stylesheet">
-		<link href="foundation/css/foundation.min.css" type="text-css" rel="stylesheet">
-		<link href="css/styles.css" type="text-css" rel="stylesheet">
-		
-		<script src="libs/jquery-2.1.4.min.js"></script>
-		<script src="libs/angular.js"></script>
-		<script src="app.js"></script>
-		<script src="webservice/moviesFactory.js"></script>
-		<script src="controller/mainController.js"></script>
-		<script src="directives/movie.js"></script>
-		<script src="js/Scripts.js"></script>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="foundation/css/foundation.min.css">
+		<link rel="stylesheet" href="css/font-awesome-4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/styles.css">
 		
 	</head>
 	<body ng-controller="mainController">
@@ -56,13 +49,13 @@
 				<div id="menu">
 					<nav>
 						<ul>
-							<li><a href="index.php"><?php echo $Movies ?></a>
+							<li><a href="index.php"><i class="fa fa-film fa-fw"></i><span><?php echo $Movies ?></span></a>
 								<ul>
 									<li><a href="index.php?adMovie"><?php echo $AdMovie ?></a></li>
 								</ul>
 							</li>
-							<li><a href=""><?php echo $Authors ?></a></li>
-							<li><a href=""><?php echo $Genders ?></a></li>
+							<li><a href=""><i class="fa fa-book fa-fw"></i><span><?php echo $Authors ?></span></a></li>
+							<li><a href=""><i class="fa fa-tag fa-fw"></i><?php echo $Genders ?></a></li>
 						</ul>
 					</nav>
 				</div>
