@@ -33,17 +33,17 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 	
 	$scope.controlMovie = function(movie) {
 		
-		$title = movie.title;
-		$author = movie.author;
-		$actor = movie.actor
-		$year = movie.year;
-		$gender = movie.gender;
-		$comment = movie.comment;
+		var title = movie.title;
+		var author = movie.author;
+		var actor = movie.actor
+		var year = movie.year;
+		var gender = movie.gender;
+		var comment = movie.comment;
 		
 		$http({
 			url: 'webservice/setMovie.php',
 			method: 'POST',
-			data: {'title': $title, 'author': $author, 'actor': actor, 'year': $year, 'gender': $gender, 'comment': $comment}
+			data: {'title': title, 'author': author, 'actor': actor, 'year': year, 'gender': gender, 'comment': comment}
 		}).then(function(message) {
 			console.log(message);
 		}, function(response) {
