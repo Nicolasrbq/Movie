@@ -65,6 +65,7 @@ h1 {
 #menu nav > ul > li a span {
   display: block;
   width: 100%;
+  float: left;
   height: 50%;
   margin: 0 auto;
 }

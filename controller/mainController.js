@@ -43,14 +43,19 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 		$http({
 			url: 'webservice/setMovie.php',
 			method: 'POST',
-			data: {'title': title, 'author': author, 'actor': actor, 'year': year, 'gender': gender, 'comment': comment}
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			transformRequest: function(obj) {
+				var str = [];
+				for(var p in obj)
+				str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+				return str.join("&");
+			},
+			data: {title: title, author: author, actor: actor, year: year, gender: gender, comment: comment}
 		}).then(function(message) {
 			console.log(message);
 		}, function(response) {
 			console.log(response);
 		});
-		
-//		console.log($title);
 		
 	}
 	
