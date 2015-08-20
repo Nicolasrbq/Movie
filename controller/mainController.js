@@ -33,32 +33,41 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 	
 	$scope.controlMovie = function(movie) {
 		
-		var title = movie.title;
-		var author = movie.author;
-		var actor = movie.actor
-		var year = movie.year;
-		var gender = movie.gender;
-		var comment = movie.comment;
+		var $title = movie.title;
+		var $author = movie.author;
+		var $actor = movie.actor
+		var $year = movie.year;
+		var $gender = movie.gender;
+		var $comment = movie.comment;
 		
-		$http({
+		/*$http({
 			url: 'webservice/setMovie.php',
-			method: 'POST',
+			method: 'GET',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-			transformRequest: function(obj) {
-				var str = [];
-				for(var p in obj)
-				str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-				return str.join("&");
-			},
-			data: {title: title, author: author, actor: actor, year: year, gender: gender, comment: comment}
+			data: {'title': $title, 'author': $author, 'actor': $actor, 'year': $year, 'gender': $gender, 'comment': $comment}
 		}).then(function(message) {
 			console.log(message);
+			alert(message);
 		}, function(response) {
 			console.log(response);
+		});*/
+		
+		$http.post('webservice/setMovie.php',
+		{
+			'title': $title,
+			'author': $author,
+			'actor': $actor,
+			'year': $year,
+			'gender': $gender,
+			'comment': $comment
+		}).success(function(data, status, headers, config){
+			console.log('Success : '+data);
+			console.log('Status : '+status);
+		}).error(function(data, status){
+			console.log('Error : '+data);
+			console.log('Status : '+status);
 		});
 		
 	}
-	
-	
 	
 });

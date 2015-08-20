@@ -62,7 +62,7 @@ class Model {
 	
 	public function setMovie($title, $author, $actor, $year, $gender, $comment) {
 		
-		$insertMovie = self::$dbh->prepare('INSERT INTO movie (title, description, year, id_gender, id_actor, id_author) VALUES ('.$title.', '.$comment.', '.$year.', '.$gender.', '.$actor.', '.$author.')');
+		$insertMovie = self::$dbh->prepare('INSERT INTO movie (title, description, year, id_gender, id_actor, id_author) VALUES ("'.$title.'", "'.$comment.'", "'.$year.'", "'.$gender.'", "'.$actor.'", "'.$author.'")');
 		
 		$insertMovie->execute(array(
 			'title' => $title,
@@ -73,13 +73,9 @@ class Model {
 			'id_author' => $author
 		));
 		
-		$data = $insertMovie->fetchAll();
+		$data = $insertMovie->fetch(PDO::FETCH_ASSOC);
 		
-		if(count($data) > 0){
-			return true;
-		} else {
-			return false;
-		}
+		return $data;
 		
 	}
 	

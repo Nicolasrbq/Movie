@@ -4,15 +4,15 @@ include_once '../model/Model.php';
 
 $movie = new Model();
 
-//var_dump($_POST);
+$data = json_decode(file_get_contents("php://input"));
 
-$title = $_POST['title'];
-$author = $_POST['author'];
-$actor = $_POST['actor'];
-$year = $_POST['year'];
-$gender = $_POST['gender'];
-$comment = $_POST['comment'];
+$title = $data->title;
+$author = $data->author;
+$actor = $data->actor;
+$year = $data->year;
+$gender = $data->gender;
+$comment = $data->comment;
 
-//var_dump($author);
+$return = $movie->setMovie($title, $author, $actor, $year, $gender, $comment);
 
-echo $movie->setMovie($title, $author, $actor, $year, $gender, $comment);
+print_r($return);
