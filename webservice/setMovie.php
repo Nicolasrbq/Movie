@@ -15,4 +15,4 @@ $comment = $data->comment;
 
 $return = $movie->setMovie($title, $author, $actor, $year, $gender, $comment);
 
-print_r($return);
+echo json_encode($return);
