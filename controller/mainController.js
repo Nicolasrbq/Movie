@@ -30,6 +30,25 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 	
 	$scope.getCounts();
 	
+	function resultRequestTrue() {
+		var $content = '<div class="request" style="width:60px;height:60px;box-sizing:border-box;z-index:2;background:#6DEA93;margin:auto;border-radius:5px;"><i class="fa fa-check" style="font-size:50px;padding:5px;"></i><div>';
+		$('form').append($content);
+		$('.request').hide().fadeIn('slow');
+		window.setTimeout(function() {
+			$('.request').fadeOut('slow');
+			$('.requestTrue').remove();
+		}, 5000);
+	}
+	
+	function resultRequestFalse() {
+		var $content = '<div class="request" style="width:60px;height:60px;box-sizing:border-box;z-index:2;background:#EA6D93;margin:auto;border-radius:5px;"><i class="fa fa-times" style="font-size:60px;padding:5px;margin:auto 6px;"></i><div>';
+		$('form').append($content);
+		$('.request').hide().fadeIn('slow');
+		window.setTimeout(function() {
+			$('.request').fadeOut('slow');
+			$('.request').remove();
+		}, 5000);
+	}
 	
 	$scope.controlMovie = function(movie) {
 		
@@ -40,18 +59,6 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 		var $gender = movie.gender;
 		var $comment = movie.comment;
 		
-		/*$http({
-			url: 'webservice/setMovie.php',
-			method: 'GET',
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-			data: {'title': $title, 'author': $author, 'actor': $actor, 'year': $year, 'gender': $gender, 'comment': $comment}
-		}).then(function(message) {
-			console.log(message);
-			alert(message);
-		}, function(response) {
-			console.log(response);
-		});*/
-		
 		$http.post('webservice/setMovie.php',
 		{
 			'title': $title,
@@ -60,12 +67,12 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 			'year': $year,
 			'gender': $gender,
 			'comment': $comment
-		}).success(function(data, status, headers, config){
-			console.log('Success : '+data);
-			console.log('Status : '+status);
-		}).error(function(data, status){
-			console.log('Error : '+data);
-			console.log('Status : '+status);
+		}).then(function(response){
+			console.log('Success');
+			resultRequestTrue();
+		}, function(response){
+			console.log('Error');
+			resultRequestFalse();
 		});
 		
 	}

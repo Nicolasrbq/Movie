@@ -13,6 +13,6 @@ $year = $data->year;
 $gender = $data->gender;
 $comment = $data->comment;
 
-$return = $movie->setMovie($title, $author, $actor, $year, $gender, $comment);
+echo $movie->setMovie($title, $author, $actor, $year, $gender, $comment);
 
-echo json_encode($return);
+//echo true;
