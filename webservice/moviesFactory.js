@@ -4,25 +4,31 @@ angular.module("appMovie").factory("moviesFactory", function($http) {
 		getCountMovies : function() {
 			return $http({
 				url: 'webservice/getCountMovies.php',
-				method: 'POST'
+				method: 'GET'
 			})
 		},
 		getCountAuthors : function() {
 			return $http({
 				url: 'webservice/getCountAuthors.php',
-				method: 'POST'
+				method: 'GET'
 			})
 		},
 		getCountGenders : function() {
 			return $http({
 				url: 'webservice/getCountGenders.php',
-				method: 'POST'
+				method: 'GET'
 			})
 		},
 		getCountActors : function() {
 			return $http({
 				url: 'webservice/getCountActors.php',
-				method: 'POST'
+				method: 'GET'
+			})
+		},
+		getMovieList : function() {
+			return $http({
+				url: 'webservice/getMovieList.php',
+				method: 'GET'
 			})
 		}
 	}

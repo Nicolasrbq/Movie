@@ -22,11 +22,11 @@ class Model {
 	public function getMovieList() {
 		$movieListRequest = 'SELECT * FROM movie, gender, author GROUP BY id_movie;';
 		$arrayList = self::$dbh->query($movieListRequest)->fetchAll();
-		return $arrayList;
+		return json_encode($arrayList);
 	}
 	
 	public function getMovie($idMovie) {
-		$movieRequest = 'SELECT * FROM movie, gender, author WHERE id_movie = "'.$idMovie.'" LIMIT 1;';
+		$movieRequest = 'SELECT * FROM movie, gender, author, actor WHERE id_movie = "'.$idMovie.'" LIMIT 1;';
 		$movie = self::$dbh->query($movieRequest);
 		$movie = $movie->fetch(PDO::FETCH_ASSOC);
 		return $movie;

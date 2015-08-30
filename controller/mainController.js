@@ -24,11 +24,17 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 	
 	}
 	
+	$scope.movieList = function() {
+		
+		moviesFactory.getMovieList().success(function(data){
+			$scope.movieList = data;
+		});
+		
+	}
+	
 	$scope.intervalPromise = $interval(function(){
 		$scope.getCounts();
-	}, 60000)
-	
-	$scope.getCounts();
+	}, 60000)	
 	
 	function resultRequestTrue() {
 		var $content = '<div class="request" style="width:60px;height:60px;box-sizing:border-box;z-index:2;background:#6DEA93;margin:auto;border-radius:5px;"><i class="fa fa-check" style="font-size:50px;padding:5px;"></i><div>';
@@ -75,6 +81,9 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 			resultRequestFalse();
 		});
 		
-	}
+	}	
+	
+	$scope.movieList();
+	$scope.getCounts();
 	
 });
