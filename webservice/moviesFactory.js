@@ -30,6 +30,24 @@ angular.module("appMovie").factory("moviesFactory", function($http) {
 				url: 'webservice/getMovieList.php',
 				method: 'GET'
 			})
+		},
+		getAuthorList : function() {
+			return $http({
+				url: 'webservice/getAuthorList.php',
+				method: 'GET'
+			})
+		},
+		getActorList : function() {
+			return $http({
+				url: 'webservice/getActorList.php',
+				method: 'GET'
+			})
+		},
+		getGenderList : function() {
+			return $http({
+				url: 'webservice/getGenderList.php',
+				method: 'GET'
+			})
 		}
 	}
 	

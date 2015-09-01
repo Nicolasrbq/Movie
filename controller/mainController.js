@@ -3,6 +3,7 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 	
 	$scope.count = [];
+	$scope.list = [];
 	
 	$scope.getCounts = function() {
 		
@@ -24,10 +25,26 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 	
 	}
 	
+	$scope.getLists = function() {
+		
+		moviesFactory.getAuthorList().success(function(authors){
+			$scope.list.author = authors;
+		});
+		
+		moviesFactory.getActorList().success(function(actors){
+			$scope.list.actor = actors;
+		});
+		
+		moviesFactory.getGenderList().success(function(genders){
+			$scope.list.gender = genders;
+		});
+		
+	}
+	
 	$scope.movieList = function() {
 		
-		moviesFactory.getMovieList().success(function(data){
-			$scope.movieList = data;
+		moviesFactory.getMovieList().success(function(movies){
+			$scope.movieList = movies;
 		});
 		
 	}
@@ -56,7 +73,7 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 		}, 5000);
 	}
 	
-	$scope.controlMovie = function(movie) {
+	$scope.controlAddMovie = function(movie) {
 		
 		var $title = movie.title;
 		var $author = movie.author;
@@ -83,7 +100,14 @@ angular.module("appMovie").controller("mainController", function($scope, $http, 
 		
 	}	
 	
-	$scope.movieList();
+	console.log($location);
+	
+	if($location.absUrl().indexOf('adMovie') > -1) {
+		$scope.getLists();
+	} else {
+		$scope.movieList();
+	}
+	
 	$scope.getCounts();
 	
 });

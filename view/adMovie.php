@@ -1,14 +1,4 @@
-<?php require_once 'template/header.php';
-
-include_once 'model/Model.php';
-
-$model = new Model();
-
-// $actorList = $model->getActorList();
-// $authorList = $model->getAuthorList();
-$genderList = $model->getGenderList();
-
-?>
+<?php require_once 'template/header.php'; ?>
 <h1><?php echo $AdMovie ?></h1>
 	<div id="adMovie">
 		<form novalidate>
@@ -29,7 +19,9 @@ $genderList = $model->getGenderList();
 				          <span class="prefix"><?php echo $Author ?></span>
 				        </div>
 				        <div class="large-9 columns">
-				          <input type="text" placeholder="<?php echo $Author ?>" ng-model="movie.author" require />
+							<select ng-model="movie.author" require >
+								<option ng-repeat="author in list.author" value="{{ author.id_author }}" selected>{{ author.author }}</option>
+						  	</select>
 				        </div>
 					</div>
 				</div>
@@ -39,7 +31,9 @@ $genderList = $model->getGenderList();
 				          <span class="prefix"><?php echo $Actor ?></span>
 				        </div>
 				        <div class="large-9 columns">
-				          <input type="text" placeholder="<?php echo $Actor ?>" ng-model="movie.actor" require />
+							<select ng-model="movie.actor" require >
+								<option ng-repeat="actor in list.actor" value="{{ actor.id_actor }}" selected>{{ actor.first_name }} {{ actor.last_name}}</option>
+							</select>
 				        </div>
 					</div>
 				</div>
@@ -52,11 +46,7 @@ $genderList = $model->getGenderList();
 				        </div>
 				        <div class="large-10 columns">
 							<select ng-model="movie.gender" require >
-								<?php 
-									foreach($genderList as $gender) {
-										echo '<option value="'.$gender['id_gender'].'">'.$gender['name_gender'].'</option>';
-									}
-								?>
+								<option ng-repeat="gender in list.gender" value="{{ gender.id_gender }}" selected>{{ gender.name_gender }}</option>
 					        </select>
 				        </div>
 					</div>
@@ -81,10 +71,9 @@ $genderList = $model->getGenderList();
 			</div>
 			<div class="row">
 				<div class="large-6 columns large-centered">
-					<input type="submit" value="<?php echo $Ad ?>" class="button expand" ng-click="controlMovie(movie)">
+					<input type="submit" value="<?php echo $Ad ?>" class="button expand" ng-click="controlAddMovie(movie)">
 				</div>
 			</div>
 		</form>
-<!-- 		<pre>{{ movie | json }}</pre> -->
 	</div>
 <?php require_once 'template/footer.php';?>

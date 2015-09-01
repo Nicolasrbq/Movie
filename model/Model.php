@@ -82,19 +82,19 @@ class Model {
 	public function getAuthorList() {
 		$authorListRequest = 'SELECT * FROM author;';
 		$arrayList = self::$dbh->query($authorListRequest)->fetchAll(PDO::FETCH_ASSOC);
-		return $arrayList;
+		return json_encode($arrayList);
 	}
 	
 	public function getGenderList() {
 		$genderListRequest = 'SELECT * FROM gender;';
 		$arrayList = self::$dbh->query($genderListRequest)->fetchAll(PDO::FETCH_ASSOC);
-		return $arrayList;
+		return json_encode($arrayList);
 	}
 	
 	public function getActorList() {
 		$actorListRequest = 'SELECT * FROM actor;';
 		$arrayList = self::$dbh->query($actorListRequest)->fetchAll(PDO::FETCH_ASSOC);
-		return $arrayList;
+		return json_encode($arrayList);
 	}
 	
 }
