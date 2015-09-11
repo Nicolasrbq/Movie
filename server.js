@@ -7,8 +7,11 @@ i18n = require('i18next'),
 app = express();
 
 var cssPath = 'public/css/';
-var movies = [];
 
+
+app.configure( function(){
+    app.engine('html', require('ejs').renderFile);
+});
 
 /** Configure LESS CSS */
 (function() {
@@ -30,28 +33,23 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-
-/** app set */
-app.set('view engine', 'ejs');
-
 /** app get */
 app.get('/', function(req, res){
-    res.render('pages/index');
-    connection.query('SELECT * FROM movie', function(err, rows, fields) { 
-        //res.end(JSON.stringify(rows));
-        res.json(rows);
-    });
+	connection.query('SELECT * FROM movie', function(err, rows, fields) {      
+        res.render('pages/index.html', {
+            movies: rows
+        });
+    })
 });
 app.get('/movie', function(req, res){
-	res.render('pages/movie');
+	res.render('pages/movie.html');
 });
 app.get('/about', function(req, res){
-	res.render('pages/about');
+	res.render('pages/about.html');
 });
 
 /** app use */
 app.use('/static', express.static(__dirname + '/public'));
-app.use('/client', express.static(__dirname + '/../client'));
 
 
 
