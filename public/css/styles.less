@@ -1,6 +1,7 @@
 @black: #000;
 @b8: #b8b8b8;
 @menuHeight: 50px;
+@headerHeight: 100px;
 @tier: 33.33%;
 
 body {
@@ -11,6 +12,10 @@ body {
 header,
 footer {
 	height: @menuHeight;
+}
+
+header {
+	height: @headerHeight
 }
 
 footer {
@@ -38,7 +43,7 @@ h1 {
 #menu {
 	width: 100%;
 	height: @menuHeight;
-	background: @b8;
+	background: @black;
 	
 	nav {
 		width: 900px;

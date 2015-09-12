@@ -7,10 +7,6 @@ i18n = require('i18next'),
 
 app = express();
 
-app.configure( function(){
-    app.engine('html', require('ejs').renderFile);
-});
-
 less.getLess();
 
 /** Configure mysql connection */
@@ -23,24 +19,26 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
+/** app set */
+app.set('view engine', 'ejs');
+
 /** app get */
 app.get('/', function(req, res){
-	connection.query('SELECT * FROM movie', function(err, rows, fields) {      
-        res.render('pages/index.html', {
+    connection.query('SELECT * FROM movie, author, gender GROUP BY id_movie', function(err, rows, fields) {
+        console.log(rows);
+        res.render('pages/index', {
             movies: rows
         });
-    })
+    });
 });
 app.get('/movie', function(req, res){
-	res.render('pages/movie.html');
+	res.render('pages/movie');
 });
 app.get('/about', function(req, res){
-	res.render('pages/about.html');
+	res.render('pages/about');
 });
 
 /** app use */
 app.use('/static', express.static(__dirname + '/public'));
-
-
 
 app.listen(8080);
