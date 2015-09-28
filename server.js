@@ -1,10 +1,11 @@
 var express = require('express'),
 less = require('./my_modules/less'),
+grunt = require('./my_modules/gruntfiles'),
 fs = require('fs'),
 mysql = require('mysql'),
 path = require('path'),
 i18n = require('i18next'),
-
+grunt = require('grunt'),
 app = express();
 
 less.getLess();
@@ -25,7 +26,7 @@ app.set('view engine', 'ejs');
 /** app get */
 app.get('/', function(req, res){
     connection.query('SELECT * FROM movie, author, gender GROUP BY id_movie', function(err, rows, fields) {
-        console.log(rows);
+        //console.log(rows);
         res.render('pages/index', {
             movies: rows
         });
