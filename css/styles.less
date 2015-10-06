@@ -1,0 +1,186 @@
+@black: #000;
+@b8: #b8b8b8;
+@menuHeight: 50px;
+@tier: 33.33%;
+
+body {
+	margin: 0;
+	height: 100%;
+}
+
+header,
+footer {
+	height: @menuHeight;
+}
+
+footer {
+	border-top: 1px solid @b8;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+h1 {
+	font-size: 30px;
+	margin: 20px 0;
+	padding: 20px;
+	text-align: center;
+}
+
+#main {
+	height: 100%;
+	width: 100%;
+	background: #EEE;
+}
+
+/*----------------------------------------*/
+
+#menu {
+	width: 100%;
+	height: @menuHeight;
+	background: @b8;
+	
+	nav {
+		width: 900px;
+		height: 100%;
+		margin: 0 auto;
+		
+		> ul {
+			height: 100%;
+//			overflow: hidden;
+			
+			> li {
+				width: @tier;
+				height: 100%;
+				float: left;
+				display: block;
+				
+				> ul {
+					
+					display: none;
+					
+					> li {
+						
+						> a {
+							display: block;
+							width: 100%;
+						}
+					}
+				}
+				
+				a {
+					height: 100%;
+					line-height: @menuHeight/2;
+					text-align: center;
+					display: block;
+					text-decoration: none;
+					background: #DDD;
+					font-size: 16px;
+					letter-spacing:2px;
+					box-sizing: border-box;
+					padding: 5px;
+						
+						i, span {
+							display: block;
+							width: 100%;
+							float: left;
+							height: 50%;
+							margin: 0 auto;
+						}
+						
+				}
+				
+				a:hover {
+					background: @b8;
+				}
+			}
+			
+			> li:hover {
+				
+				 > ul {
+				 	display: block;
+				 }
+			}
+		}
+	}	
+}
+
+/*----------------------------------------*/
+
+#flags {
+	height: @menuHeight;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 0 auto;
+	padding: 5px;
+	
+	img {
+		height: 40px;
+		width: 60px;
+		padding: 5px;
+	}
+}
+
+/*----------------------------------------*/
+
+#stats {
+	overflow: hidden;
+	height: 100%;
+	
+	.count {
+		height: 100%;
+		float: left;
+		line-height: @menuHeight;
+		padding: 0 20px;
+		border-right: 1px solid @b8;
+	}
+	
+	.count:last-child {
+		border: none;
+	}
+}
+
+/*----------------------------------------*/
+
+#movieList {
+	width: 900px;
+	margin: 0 auto;
+	padding: 20px 0;
+	
+	.movie {
+		overflow: hidden;
+		margin: 20px 0;
+		
+		label {
+			display: block;
+			float: left;
+		}
+		
+		label.title {
+			width: 250px;
+			
+			a {
+				text-decoration: none;
+				color: #000;
+				font-weight: bold;
+			}
+		}
+		
+		label.author {
+			width: 150px;
+		}
+		
+		label.description {
+			width: 300px;
+		}
+		
+		label.gender {
+			width: 150px;
+		}
+		
+		label.year {
+			width: 50px;
+		}
+	}
+}
